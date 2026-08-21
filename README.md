@@ -455,14 +455,6 @@ Os mesmos 30 fixtures também são cobertos pelo `Cli.ScenarioBatterySpec` e
 rodam dentro de `stack test`. O script separado complementa o teste HSpec ao
 invocar o executável compilado com `stack exec`.
 
-Os arquivos `*PropSpec.hs` rodam junto com os specs tradicionais via
-`hspec-discover`. Se uma propriedade falhar, o QuickCheck imprime um
-contraexemplo minimizado e uma seed que pode ser reproduzida com:
-
-```bash
-stack test --test-arguments "--seed=<seed-impressa-na-falha>"
-```
-
 ## 11. Estrutura Do Projeto
 
 ```text
@@ -476,7 +468,7 @@ type-safe-portfolio-compliance-engine/
 |   |-- Domain/      -- tipos primitivos e modelagem financeira
 |   |-- Examples/    -- cenários prontos para CLI
 |   `-- Risk/        -- regras, política, relatório e agregação de risco
-111111|-- test/
+|-- test/
 |   |-- Cli/         -- parser e bateria de cenários JSON
 |   |-- CompileFail/ -- garantias negativas verificadas pelo compilador
 |   |-- Domain/
