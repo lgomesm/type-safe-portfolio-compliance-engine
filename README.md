@@ -96,14 +96,9 @@ Regras de compliance e risco, avaliadas em runtime sobre um
   crédito privado.
 - A carteira precisa ter pelo menos 3 tickers distintos.
 
-A ideia central, portanto, é que a maior parte dos estados inválidos seja algo que não
-consegue ser representado corretamente no programa.
-
 ### Visão geral da arquitetura
 
-O fluxo abaixo mostra como a entrada da CLI passa pelos parsers e smart
-constructors, chega ao `Portfolio` válido, e finalmente é avaliada pelo motor
-de risco antes da apresentação do resultado ao usuário.
+O diagrama resume o caminho da entrada da CLI até a avaliação e a saída final.
 
 ![Diagrama da arquitetura e do fluxo de avaliação](diagrama.png)
 
@@ -208,8 +203,7 @@ aplicada, sem alterar a estrutura do `Portfolio`.
 
 A CLI também aceita `--locality brazil` e `--locality chile` para os cenários
 que usam a política default. O parser converte o texto para o tipo fechado
-`Locality` antes de chamar `Risk.Policy.policyForLocality`; nenhum limite de
-negócio é duplicado em `Main.hs`. A opção pode aparecer antes ou depois de
+`Locality` antes de chamar `Risk.Policy.policyForLocality`. A opção pode aparecer antes ou depois de
 `--top`, e uma localidade explícita é exibida como contexto no relatório.
 
 ### Avaliando uma carteira própria
@@ -252,9 +246,7 @@ O schema esperado é:
 `profile` aceita `conservative`, `moderate` ou `aggressive`; `creditScore`
 aceita `low`, `medium` ou `high`, sem diferenciar maiúsculas de minúsculas.
 `weight` é uma fração em `[0, 1]`, portanto `0.30` significa 30%, e não 30.
-Classes e setores usam os mesmos parsers do domínio. O arquivo não pode definir
-limites de política: `--locality` continua selecionando Brazil ou Chile fora do
-JSON, para que a mesma carteira possa ser comparada sob as duas políticas.
+Classes e setores usam os mesmos parsers do domínio
 
 #### Entrada por valor monetário
 
@@ -292,12 +284,10 @@ stack run portfolio-compliance-engine -- --input test/fixtures/custom-approved-b
 
 Os montantes acima produzem os mesmos pesos `0.30`, `0.30`, `0.20` e `0.20`
 da entrada ponderada. O campo `weight` não deve ser misturado com `amount` no
-mesmo modo. Sem `allocationMode`, o formato legado por pesos continua sendo o
-padrão; `allocationMode: "weight"` também o seleciona explicitamente.
+mesmo modo
 
 Valores zero, negativos, `NaN`, infinito ou soma que estoure a representação
-finita são rejeitados antes da avaliação. Um modo diferente de `weight` ou
-`amount` é erro de protocolo da entrada, não uma violação de compliance.
+finita são rejeitados antes da avaliação
 
 Falhas de arquivo, JSON/schema, campo de domínio ou soma dos pesos retornam
 código `2`; uma carteira válida que viole compliance retorna código `1`.
@@ -427,23 +417,17 @@ No violations found.
 
 ### Testes negativos de tipos
 
-Além dos testes comportamentais, a suíte possui expressões deliberadamente
-incompatíveis em `test/CompileFail/TypeSafetySpec.hs`. Esse módulo usa
-`should-not-typecheck` com deferred type errors apenas para transformar uma
-rejeição esperada do GHC em uma assertion da suíte; a aplicação e os demais
-testes continuam compilando sem esse modo.
+Os testes negativos em `test/CompileFail/TypeSafetySpec.hs` usam
+`should-not-typecheck` para verificar expressões que devem ser rejeitadas pelo
+GHC. A aplicação e os demais testes continuam compilando normalmente.
 
-Os casos cobrem, uma vez cada, as principais garantias type-level do projeto:
+Os testes cobrem quatro garantias principais:
 
 - uma revisão de Analyst não aceita um caso de Credit Committee;
 - uma transição GADT não pode receber um estado de origem diferente;
 - um `Fin n` incompatível não pode indexar um `Vec n`;
 - um resultado dinâmico de concentração não pode ser usado em um request
   estático.
-
-Um teste negativo passar significa que o compilador rejeitou corretamente a
-expressão inválida. Se uma futura alteração enfraquecer a assinatura da API
-e a expressão passar a tipar, `shouldNotTypecheck` falhará.
 
 ## 9. Validações em runtime
 
@@ -471,7 +455,7 @@ e a expressão passar a tipar, `shouldNotTypecheck` falhará.
 
 ## 10. Testes
 
-O projeto combina três mecanismos de confiança:
+A suíte reúne três tipos de verificação:
 
 - Sistema de tipos para impedir estados inválidos por construção.
 - Testes unitários baseados em exemplo para comportamentos específicos.
