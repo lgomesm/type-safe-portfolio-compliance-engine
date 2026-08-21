@@ -1,0 +1,30 @@
+{
+  "name": "custom-concentrated",
+  "customer": {
+    "id": "customer-moderate-high",
+    "profile": "moderate",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.40
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Equity",
+        "sector": "Financial",
+        "weight": 0.35
+      },
+      {
+        "ticker": "VALE3",
+        "assetClass": "Equity",
+        "sector": "Other",
+        "weight": 0.25
+      }
+    ]
+  }
+}
