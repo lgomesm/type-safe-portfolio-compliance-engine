@@ -1,0 +1,96 @@
+name: type-safe-portfolio-compliance-engine
+version: 0.1.0.0
+synopsis: A type-safe portfolio compliance engine written in Haskell
+category: Finance
+
+dependencies:
+  - aeson
+  - ansi-terminal
+  - base >= 4.14 && < 5
+  - bytestring
+  - containers
+  - prettyprinter
+  - prettyprinter-ansi-terminal
+  - text
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
+  - -Wredundant-constraints
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Cli.Options
+    - Cli.Render
+    - Cli.ScenarioInput
+    - Cli.Theme
+    - Domain.Asset
+    - Domain.AssetClassification
+    - Domain.CreditScore
+    - Domain.Customer
+    - Domain.CustomerId
+    - Domain.CustomerProfile
+    - Domain.Error
+    - Domain.HList
+    - Domain.Money
+    - Domain.MonetaryPosition
+    - Domain.Percentage
+    - Domain.Portfolio
+    - Domain.Position
+    - Domain.RawPortfolio
+    - Domain.SafeVector
+    - Domain.Ticker
+    - Examples.Customers
+    - Examples.Portfolios
+    - Examples.Scenarios
+    - Risk.Approval
+    - Risk.Concentration
+    - Risk.Engine
+    - Risk.EvaluationBundle
+    - Risk.Exposure
+    - Risk.Policy
+    - Risk.Report
+    - Risk.RiskLevel
+    - Risk.Rules.AssetAllocation
+    - Risk.Rules.AssetClassExposure
+    - Risk.Rules.CustomerSuitability
+    - Risk.Rules.Diversification
+    - Risk.Rules.Input
+    - Risk.Rules.Policy
+    - Risk.Rules.PrivateCreditSuitability
+    - Risk.Rules.SectorExposure
+    - Risk.Rules.Types
+    - Risk.SuitabilityPolicy
+    - Risk.Violation
+  other-modules:
+    - Domain.Percentage.Internal
+
+executables:
+  portfolio-compliance-engine:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+      - aeson
+      - base
+      - bytestring
+      - containers
+      - text
+      - type-safe-portfolio-compliance-engine
+
+tests:
+  portfolio-compliance-test:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+      - base
+      - bytestring
+      - containers
+      - text
+      - type-safe-portfolio-compliance-engine
+      - hspec
+      - hspec-discover
+      - should-not-typecheck
+      - QuickCheck

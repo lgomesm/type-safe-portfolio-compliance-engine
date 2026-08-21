@@ -1,0 +1,161 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           type-safe-portfolio-compliance-engine
+version:        0.1.0.0
+synopsis:       A type-safe portfolio compliance engine written in Haskell
+category:       Finance
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+
+library
+  exposed-modules:
+      Cli.Options
+      Cli.Render
+      Cli.ScenarioInput
+      Cli.Theme
+      Domain.Asset
+      Domain.AssetClassification
+      Domain.CreditScore
+      Domain.Customer
+      Domain.CustomerId
+      Domain.CustomerProfile
+      Domain.Error
+      Domain.HList
+      Domain.Money
+      Domain.MonetaryPosition
+      Domain.Percentage
+      Domain.Portfolio
+      Domain.Position
+      Domain.RawPortfolio
+      Domain.SafeVector
+      Domain.Ticker
+      Examples.Customers
+      Examples.Portfolios
+      Examples.Scenarios
+      Risk.Approval
+      Risk.Concentration
+      Risk.Engine
+      Risk.EvaluationBundle
+      Risk.Exposure
+      Risk.Policy
+      Risk.Report
+      Risk.RiskLevel
+      Risk.Rules.AssetAllocation
+      Risk.Rules.AssetClassExposure
+      Risk.Rules.CustomerSuitability
+      Risk.Rules.Diversification
+      Risk.Rules.Input
+      Risk.Rules.Policy
+      Risk.Rules.PrivateCreditSuitability
+      Risk.Rules.SectorExposure
+      Risk.Rules.Types
+      Risk.SuitabilityPolicy
+      Risk.Violation
+  other-modules:
+      Domain.Percentage.Internal
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      aeson
+    , ansi-terminal
+    , base >=4.14 && <5
+    , bytestring
+    , containers
+    , prettyprinter
+    , prettyprinter-ansi-terminal
+    , text
+  default-language: Haskell2010
+
+executable portfolio-compliance-engine
+  main-is: Main.hs
+  other-modules:
+      Paths_type_safe_portfolio_compliance_engine
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      aeson
+    , ansi-terminal
+    , base
+    , bytestring
+    , containers
+    , prettyprinter
+    , prettyprinter-ansi-terminal
+    , text
+    , type-safe-portfolio-compliance-engine
+  default-language: Haskell2010
+
+test-suite portfolio-compliance-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Cli.OptionsSpec
+      Cli.RenderSpec
+      Cli.ScenarioBatterySpec
+      Cli.ScenarioInputSpec
+      CompileFail.TypeSafetySpec
+      Domain.AssetClassificationSpec
+      Domain.AssetSpec
+      Domain.CustomerIdSpec
+      Domain.HListSpec
+      Domain.MonetaryPositionSpec
+      Domain.MoneySpec
+      Domain.PercentagePropSpec
+      Domain.PercentageSpec
+      Domain.PortfolioPropSpec
+      Domain.PortfolioSpec
+      Domain.PositionSpec
+      Domain.PositiveMoneyPropSpec
+      Domain.RawPortfolioSpec
+      Domain.SafeVectorSpec
+      Domain.TickerPropSpec
+      Domain.TickerSpec
+      Examples.PortfoliosSpec
+      Examples.ScenariosSpec
+      Generators.Domain
+      Generators.Portfolio
+      Risk.ApprovalSpec
+      Risk.ConcentrationSpec
+      Risk.EnginePropSpec
+      Risk.EngineSpec
+      Risk.EvaluationBundleSpec
+      Risk.PolicyPropSpec
+      Risk.PolicySpec
+      Risk.ReportPropSpec
+      Risk.ReportSpec
+      Risk.RiskLevelSpec
+      Risk.Rules.AssetAllocationSpec
+      Risk.Rules.AssetClassExposureSpec
+      Risk.Rules.CustomerSuitabilitySpec
+      Risk.Rules.DiversificationSpec
+      Risk.Rules.PolicySpec
+      Risk.Rules.PrivateCreditSuitabilitySpec
+      Risk.Rules.SectorExposureSpec
+      Risk.SuitabilityPolicyPropSpec
+      Test.PercentageFixtures
+      Test.PortfolioFixtures
+      Paths_type_safe_portfolio_compliance_engine
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      QuickCheck
+    , aeson
+    , ansi-terminal
+    , base
+    , bytestring
+    , containers
+    , hspec
+    , hspec-discover
+    , prettyprinter
+    , prettyprinter-ansi-terminal
+    , should-not-typecheck
+    , text
+    , type-safe-portfolio-compliance-engine
+  default-language: Haskell2010
