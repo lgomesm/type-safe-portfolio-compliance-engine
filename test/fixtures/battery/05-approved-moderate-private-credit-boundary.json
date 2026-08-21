@@ -1,0 +1,36 @@
+{
+  "name": "approved-moderate-private-credit-boundary",
+  "customer": {
+    "id": "customer-moderate-high-05",
+    "profile": "moderate",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "DEB1",
+        "assetClass": "PrivateCredit",
+        "sector": "Other",
+        "weight": 0.15
+      },
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.30
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Equity",
+        "sector": "Financial",
+        "weight": 0.25
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Utilities",
+        "weight": 0.30
+      }
+    ]
+  }
+}

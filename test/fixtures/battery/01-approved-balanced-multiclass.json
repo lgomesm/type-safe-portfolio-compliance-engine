@@ -1,0 +1,42 @@
+{
+  "name": "approved-balanced-multiclass",
+  "customer": {
+    "id": "customer-conservative-high-01",
+    "profile": "conservative",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.25
+      },
+      {
+        "ticker": "NTNB1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.25
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Technology",
+        "weight": 0.20
+      },
+      {
+        "ticker": "CASH1",
+        "assetClass": "Cash",
+        "sector": "Other",
+        "weight": 0.15
+      },
+      {
+        "ticker": "NTNB2",
+        "assetClass": "FixedIncome",
+        "sector": "Utilities",
+        "weight": 0.15
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "rejected-multiple-suitability-violations",
+  "customer": {
+    "id": "customer-conservative-low-24",
+    "profile": "conservative",
+    "creditScore": "low"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.25
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Equity",
+        "sector": "Financial",
+        "weight": 0.25
+      },
+      {
+        "ticker": "BTC1",
+        "assetClass": "Crypto",
+        "sector": "Technology",
+        "weight": 0.06
+      },
+      {
+        "ticker": "ETH1",
+        "assetClass": "Crypto",
+        "sector": "Other",
+        "weight": 0.06
+      },
+      {
+        "ticker": "DEB1",
+        "assetClass": "PrivateCredit",
+        "sector": "Utilities",
+        "weight": 0.13
+      },
+      {
+        "ticker": "CRI1",
+        "assetClass": "PrivateCredit",
+        "sector": "Consumer",
+        "weight": 0.12
+      },
+      {
+        "ticker": "CASH1",
+        "assetClass": "Cash",
+        "sector": "Energy",
+        "weight": 0.13
+      }
+    ]
+  }
+}

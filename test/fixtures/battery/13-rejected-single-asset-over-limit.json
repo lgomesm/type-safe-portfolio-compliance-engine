@@ -1,0 +1,36 @@
+{
+  "name": "rejected-single-asset-over-limit",
+  "customer": {
+    "id": "customer-aggressive-high-13",
+    "profile": "aggressive",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.31
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.23
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Technology",
+        "weight": 0.23
+      },
+      {
+        "ticker": "CASH1",
+        "assetClass": "Cash",
+        "sector": "Other",
+        "weight": 0.23
+      }
+    ]
+  }
+}

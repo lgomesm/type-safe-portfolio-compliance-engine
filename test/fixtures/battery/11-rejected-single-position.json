@@ -1,0 +1,18 @@
+{
+  "name": "rejected-single-position",
+  "customer": {
+    "id": "customer-aggressive-high-11",
+    "profile": "aggressive",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 1.00
+      }
+    ]
+  }
+}

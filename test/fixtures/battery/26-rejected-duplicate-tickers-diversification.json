@@ -1,0 +1,36 @@
+{
+  "name": "rejected-duplicate-tickers-diversification",
+  "customer": {
+    "id": "customer-conservative-high-26",
+    "profile": "conservative",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.25
+      },
+      {
+        "ticker": "PETR4",
+        "assetClass": "FixedIncome",
+        "sector": "Energy",
+        "weight": 0.25
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Fund",
+        "sector": "Financial",
+        "weight": 0.25
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Cash",
+        "sector": "Financial",
+        "weight": 0.25
+      }
+    ]
+  }
+}

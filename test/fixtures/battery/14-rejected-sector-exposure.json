@@ -1,0 +1,36 @@
+{
+  "name": "rejected-sector-exposure",
+  "customer": {
+    "id": "customer-conservative-high-14",
+    "profile": "conservative",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Equity",
+        "sector": "Financial",
+        "weight": 0.30
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.30
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Energy",
+        "weight": 0.20
+      },
+      {
+        "ticker": "CASH1",
+        "assetClass": "Cash",
+        "sector": "Technology",
+        "weight": 0.20
+      }
+    ]
+  }
+}

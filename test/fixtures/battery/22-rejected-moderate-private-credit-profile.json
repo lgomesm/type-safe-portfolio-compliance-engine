@@ -1,0 +1,36 @@
+{
+  "name": "rejected-moderate-private-credit-profile",
+  "customer": {
+    "id": "customer-moderate-high-22",
+    "profile": "moderate",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "DEB1",
+        "assetClass": "PrivateCredit",
+        "sector": "Other",
+        "weight": 0.16
+      },
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.24
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.30
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Technology",
+        "weight": 0.30
+      }
+    ]
+  }
+}

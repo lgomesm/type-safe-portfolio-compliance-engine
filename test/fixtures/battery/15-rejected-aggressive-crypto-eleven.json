@@ -1,0 +1,42 @@
+{
+  "name": "rejected-aggressive-crypto-eleven",
+  "customer": {
+    "id": "customer-aggressive-high-15",
+    "profile": "aggressive",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "BTC1",
+        "assetClass": "Crypto",
+        "sector": "Other",
+        "weight": 0.06
+      },
+      {
+        "ticker": "ETH1",
+        "assetClass": "Crypto",
+        "sector": "Technology",
+        "weight": 0.05
+      },
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.29
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.30
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Utilities",
+        "weight": 0.30
+      }
+    ]
+  }
+}

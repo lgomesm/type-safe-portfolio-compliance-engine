@@ -1,0 +1,36 @@
+{
+  "name": "approved-non-risk-classes",
+  "customer": {
+    "id": "customer-conservative-low-10",
+    "profile": "conservative",
+    "creditScore": "low"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.30
+      },
+      {
+        "ticker": "BOND2",
+        "assetClass": "FixedIncome",
+        "sector": "Utilities",
+        "weight": 0.25
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Technology",
+        "weight": 0.25
+      },
+      {
+        "ticker": "CASH1",
+        "assetClass": "Cash",
+        "sector": "Other",
+        "weight": 0.20
+      }
+    ]
+  }
+}

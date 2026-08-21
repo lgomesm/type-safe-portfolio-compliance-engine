@@ -1,0 +1,37 @@
+{
+  "name": "custom-approved-by-amount",
+  "customer": {
+    "id": "customer-conservative-high",
+    "profile": "conservative",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "allocationMode": "amount",
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "amount": 30000
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Equity",
+        "sector": "Financial",
+        "amount": 30000
+      },
+      {
+        "ticker": "VALE3",
+        "assetClass": "Equity",
+        "sector": "Other",
+        "amount": 20000
+      },
+      {
+        "ticker": "WEGE3",
+        "assetClass": "Equity",
+        "sector": "Technology",
+        "amount": 20000
+      }
+    ]
+  }
+}

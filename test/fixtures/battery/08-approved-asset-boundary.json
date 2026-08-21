@@ -1,0 +1,36 @@
+{
+  "name": "approved-asset-boundary",
+  "customer": {
+    "id": "customer-conservative-high-08",
+    "profile": "conservative",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.30
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.30
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Technology",
+        "weight": 0.20
+      },
+      {
+        "ticker": "CASH1",
+        "assetClass": "Cash",
+        "sector": "Other",
+        "weight": 0.20
+      }
+    ]
+  }
+}

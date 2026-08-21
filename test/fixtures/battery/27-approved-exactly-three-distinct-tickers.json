@@ -1,0 +1,36 @@
+{
+  "name": "approved-exactly-three-distinct-tickers",
+  "customer": {
+    "id": "customer-conservative-high-27",
+    "profile": "conservative",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.25
+      },
+      {
+        "ticker": "PETR4",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.25
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Fund",
+        "sector": "Technology",
+        "weight": 0.25
+      },
+      {
+        "ticker": "VALE3",
+        "assetClass": "Cash",
+        "sector": "Other",
+        "weight": 0.25
+      }
+    ]
+  }
+}

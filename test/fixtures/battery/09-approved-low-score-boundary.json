@@ -1,0 +1,42 @@
+{
+  "name": "approved-low-score-boundary",
+  "customer": {
+    "id": "customer-moderate-low-09",
+    "profile": "moderate",
+    "creditScore": "low"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.20
+      },
+      {
+        "ticker": "ITUB4",
+        "assetClass": "Equity",
+        "sector": "Financial",
+        "weight": 0.15
+      },
+      {
+        "ticker": "BTC1",
+        "assetClass": "Crypto",
+        "sector": "Other",
+        "weight": 0.05
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Utilities",
+        "weight": 0.30
+      },
+      {
+        "ticker": "FUND1",
+        "assetClass": "Fund",
+        "sector": "Technology",
+        "weight": 0.30
+      }
+    ]
+  }
+}

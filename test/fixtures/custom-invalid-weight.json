@@ -1,0 +1,17 @@
+{
+  "customer": {
+    "id": "customer-1",
+    "profile": "moderate",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 1.30
+      }
+    ]
+  }
+}

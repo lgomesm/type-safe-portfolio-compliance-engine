@@ -1,0 +1,24 @@
+{
+  "name": "rejected-two-assets-under-diversified",
+  "customer": {
+    "id": "customer-aggressive-high-12",
+    "profile": "aggressive",
+    "creditScore": "high"
+  },
+  "portfolio": {
+    "positions": [
+      {
+        "ticker": "PETR4",
+        "assetClass": "Equity",
+        "sector": "Energy",
+        "weight": 0.50
+      },
+      {
+        "ticker": "BOND1",
+        "assetClass": "FixedIncome",
+        "sector": "Financial",
+        "weight": 0.50
+      }
+    ]
+  }
+}
