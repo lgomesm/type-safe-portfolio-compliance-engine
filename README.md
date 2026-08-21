@@ -1,6 +1,53 @@
 # Type-Safe Portfolio Compliance Engine
 
-Um motor de compliance para carteiras de investimento, desenvolvido em Haskell como projeto da disciplina de Desenvolvimento Guiado por Tipos
+Motor de compliance para carteiras de investimento, desenvolvido em Haskell como projeto da disciplina de Desenvolvimento Guiado por Tipos
+
+## Visão geral
+
+O projeto recebe uma carteira de investimentos, valida sua estrutura por meio
+de tipos seguros e aplica regras de compliance, risco, suitability,
+concentração e aprovação operacional.
+
+Principais capacidades:
+
+- Construção type-safe de valores financeiros e carteiras válidas.
+- Regras configuráveis por perfil, score, segmento e localidade.
+- Workflow de aprovação com Phantom Types e GADTs.
+- Análise de concentração com vetores indexáveis, singletons e Top N dinâmico.
+- Entrada por cenários compilados ou arquivos JSON.
+- CLI com saída visual, fallback ASCII e códigos de saída previsíveis.
+
+### Demonstração
+
+![Demonstração da CLI](demo.gif)
+
+### Primeiro comando
+
+```bash
+stack build
+stack run portfolio-compliance-engine -- approved
+```
+
+Para validar o projeto inteiro:
+
+```bash
+stack test
+```
+
+### Sumário
+
+- [Contexto](#1-contexto)
+- [Problema](#2-problema)
+- [Solução e arquitetura](#3-solução-e-arquitetura)
+- [Modelagem de domínio](#4-modelagem-de-domínio)
+- [Regras implementadas](#5-regras-implementadas)
+- [Como executar](#6-como-executar)
+- [Exemplos de saída](#7-exemplos-de-saída)
+- [Garantias do sistema de tipos](#8-garantias-do-sistema-de-tipos)
+- [Validações em runtime](#9-validações-em-runtime)
+- [Testes](#10-testes)
+- [Estrutura do projeto](#11-estrutura-do-projeto)
+- [Relatório da entrega](#relatório-da-entrega)
 
 ## 1. Contexto
 
@@ -18,7 +65,7 @@ garantidas pela própria estrutura dos tipos, e quais são regras de
 negócio que realmente precisam ser avaliadas em runtime sobre uma
 carteira já estruturalmente correta?
 
-## 3. Solução
+## 3. Solução e Arquitetura
 
 O projeto separa o domínio em duas camadas complementares.
 
@@ -115,7 +162,7 @@ RuleInput rule
     -- tipo associado que declara a entrada exata da regra
 ```
 
-## 5. Regras Implementadas
+## 5. Regras implementadas
 
 | Regra | Limite | Módulo |
 | --- | --- | --- |
@@ -131,7 +178,7 @@ RuleInput rule
 | Política configurável por localidade | `Brazil` / `Chile` | `Risk.Policy` |
 | Workflow de aprovação | alçada máxima por violação | `Risk.Approval` |
 
-## 6. Como Rodar
+## 6. Como executar
 
 ```bash
 stack build
@@ -152,13 +199,6 @@ stack run portfolio-compliance-engine -- --input examples/custom-portfolio.json
 stack run portfolio-compliance-engine -- --input examples/custom-portfolio.json --locality chile --top 2
 ```
 
-### Demonstração visual da CLI
-
-O GIF abaixo mostra a aplicação sendo executada pela CLI e a
-apresentação do resultado final da avaliação.
-
-![Demonstração da CLI](demo.gif)
-
 Sem argumentos, ou com um cenário desconhecido, o programa imprime a
 lista de cenários válidos e sai com código `64`.
 
@@ -177,7 +217,7 @@ negócio é duplicado em `Main.hs`. A opção pode aparecer antes ou depois de
 Além dos cenários compilados de demonstração, a CLI aceita exatamente uma fonte
 de entrada: um cenário embutido **ou** `--input <arquivo.json>`. O arquivo é
 somente uma representação externa. Antes de o motor ser chamado, seus textos e
-numeros passam por `mkCustomerId`, `mkTicker`, `parseAssetClass`, `parseSector`,
+números passam por `mkCustomerId`, `mkTicker`, `parseAssetClass`, `parseSector`,
 `mkPercentage` e, por fim, `mkPortfolio`.
 
 ```bash
@@ -271,7 +311,7 @@ código `2`; uma carteira válida que viole compliance retorna código `1`.
 | `2` | Falha ao ler ou construir a entrada antes da avaliação |
 | `64` | Uso incorreto da CLI |
 
-## 7. Exemplos de Saída
+## 7. Exemplos de saída
 
 Carteira reprovada por excesso de concentração:
 
@@ -326,7 +366,7 @@ Status: Approved
 No violations found.
 ```
 
-## 7.1 Tabela De Alçadas
+## 7.1 Tabela de alçadas
 
 | Sinal | Alçada |
 | --- | --- |
@@ -338,7 +378,7 @@ No violations found.
 | Excesso global de crédito privado | `CreditCommittee` |
 | Excesso por perfil em crédito privado conservador | `CreditCommittee` |
 
-## 8. O Que O Sistema De Tipos Garante
+## 8. Garantias do sistema de tipos
 
 - Não existe caminho público para construir `Ticker`, `Percentage` ou
   `PositiveMoney` sem passar pelos smart constructors correspondentes.
@@ -405,7 +445,7 @@ Um teste negativo passar significa que o compilador rejeitou corretamente a
 expressão inválida. Se uma futura alteração enfraquecer a assinatura da API
 e a expressão passar a tipar, `shouldNotTypecheck` falhará.
 
-## 9. O Que Ainda É Validado Em Runtime
+## 9. Validações em runtime
 
 - As seis avaliações de compliance e suitability em si, porque fazem parte
   da política de risco, não da validade estrutural do dado.
@@ -455,7 +495,7 @@ Os mesmos 30 fixtures também são cobertos pelo `Cli.ScenarioBatterySpec` e
 rodam dentro de `stack test`. O script separado complementa o teste HSpec ao
 invocar o executável compilado com `stack exec`.
 
-## 11. Estrutura Do Projeto
+## 11. Estrutura do projeto
 
 ```text
 type-safe-portfolio-compliance-engine/
